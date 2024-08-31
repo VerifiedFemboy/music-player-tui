@@ -13,12 +13,13 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
-    
-
+  
     steps:
     - uses: actions/checkout@v4
     - name: Installing depends
-      run: apt install libasound2-dev
+      run: |
+        apt-get update
+        apt-get install libasound2-dev -y
     - name: Build
       run: cargo build --verbose
     - name: Run tests
